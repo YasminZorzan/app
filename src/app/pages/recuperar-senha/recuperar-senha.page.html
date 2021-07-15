@@ -1,0 +1,53 @@
+<ion-content class="bg-black">
+	<div class="p-8">
+		<!--------- Esse bloco aparece quando a página é acessada --------->
+		<ng-container *ngIf="!emailEnviado">
+			<h1 class="font-rajdhani text-5xl text-softGray mb-6 mt-24">recuperar a senha</h1>
+			<p class="text-white font-light mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+				eiusmod tempor incididunt ut.</p>
+
+			<form [formGroup]="registrationForm" (submit)="lembrarSenha()">
+				<div class="text-left">
+					<div class="px-4 border rounded-full relative focus:border-blue-light focus:text-blue-light"
+						[ngClass]="{'border-alertRed text-alertRed' : registrationForm.get('email').errors && registrationForm.get('email').touched , 'border-white text-white' : registrationForm.get('email').touched && registrationForm.get('email').valid, 'border-softGray text-softGray' : !registrationForm.get('email').touched}">
+						<ion-input placeholder="E-mail" type="email" name="email" formControlName="email"
+							autocomplete="chrome-off" class="text-sm"></ion-input>
+						<ion-icon class="check absolute top-1/2 right-3 transform -translate-y-1/2"
+							*ngIf="!registrationForm.get('email').invalid && (!registrationForm.get('email').dirty || registrationForm.get('email').touched)">
+						</ion-icon>
+					</div>
+					<app-error-handling [field]="registrationForm.get('email')" fieldName="E-mail">
+					</app-error-handling>
+				</div>
+
+				<div class="block text-center mt-6 mb-3">
+					<ion-button type="submit" class="px-10 bg-blue-light rounded-full text-black remove-shadow"
+						color="clear">Enviar ></ion-button>
+				</div>
+			</form>
+		</ng-container>
+
+		<!--------- Esse bloco aparece quando o e-mail é enviado --------->
+		<ng-container *ngIf="emailEnviado">
+			<ion-grid class="ion-no-padding mt-24">
+				<ion-row>
+					<ion-col size="9">
+						<p class="font-rajdhani text-5xl text-softGray">e-mail enviado</p>
+					</ion-col>
+					<ion-col class="flex items-end justify-items-end" size="3">
+						<img src="/assets/img/icons/icon-mail-sent.svg" alt="Enviado" class="pb-3">
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+
+			<p class="text-white font-light my-20">Se você tiver um usuário cadastrado, receberá em instantes instruções
+				para redefinir sua senha.</p>
+
+			<p class="text-center">
+				<ion-button class="px-10 bg-blue-light rounded-full text-black remove-shadow" color="clear" (click)="novaSenha()">Entendi
+				</ion-button>
+			</p>
+		</ng-container>
+
+	</div>
+</ion-content>

@@ -1,0 +1,80 @@
+<ion-content class="bg-strongGray">
+	<div class="p-4">
+		<ion-grid>
+			<ion-row>
+				<ion-col size="9">
+					<h1 class="font-rajdhani font-medium text-5xl text-softGray mb-6">{{viewTitle}}</h1>
+				</ion-col>
+				<ion-col size="3" class="pt-5">
+					<div class="text-right">
+						<ion-icon class="arrow-left bg-darkGray float-left" (click)="mesAnterior()"></ion-icon>
+						<ion-icon class="arrow-right bg-darkGray float-right" (click)="proximoMes()"></ion-icon>
+					</div>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+  </div>
+
+  <ion-grid class="ion-no-padding p-0 text-center mb-4">
+    <ion-row>
+      <ion-col size="6">
+        <ion-icon class="ellipse bg-warningYellow align-middle"></ion-icon>
+        <img src="/assets/img/logo-velocity-cinza.svg" alt="Velocity" class="inline pl-2">
+      </ion-col>
+      <ion-col size="6">
+        <ion-icon class="ellipse bg-alertRed align-middle"></ion-icon>
+        <img src="/assets/img/logo-kore-cinza.svg" alt="Kore" class="inline pl-2">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+	<!-- Template dos eventos -->
+  <ng-template #eventsTemplate let-showEventDetail="showEventDetail" let-selectedDate="selectedDate" let-noEventsLabel="noEventsLabel">
+    <div [class.hidden]="slideEventosAberto == false">
+      <div class="fixed top-0 left-0 w-full z-50">
+        <ion-list class="event-detail-container" has-bouncing="false" *ngIf="showEventDetail" overflow-scroll="true">
+          <ion-item class="p-inline-start" lines="none" *ngFor="let event of (modoEventoMensal ? eventSource : selectedDate?.events); let i = index">
+            <div>
+              <p class="bold pr-20">YEYE {{event.title}}</p>
+          </div>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- Template do calendário -->
+  <ng-template #template let-view="view" let-row="row" let-col="col">
+    {{view.dates[row*7+col].label}}
+
+    <div *ngFor="let obj of view.dates[row*7+col].events">
+      <ng-container *ngIf="view.dates[row*7+col].events">
+        <p class="bg-darkGray overflow-auto event-item mb-1" *ngIf="obj.empresa == 'Velocity'" (click)="slideEventosAberto = true">
+          <ion-icon class="ellipse bg-warningYellow float-left"></ion-icon>
+          <ion-icon class="tiny-block icon-8 bg-warningYellow float-right"></ion-icon>
+        </p>
+        <p class="bg-darkGray overflow-auto event-item mb-1" *ngIf="obj.empresa == 'Kore'" (click)="slideEventosAberto = true">
+          <ion-icon class="ellipse bg-alertRed float-left"></ion-icon>
+          <ion-icon class="tiny-block icon-8 bg-alertRed float-right"></ion-icon>
+        </p>
+      </ng-container>
+    </div> 
+  </ng-template>
+
+  <calendar [eventSource]="eventSource"
+    [calendarMode]="calendar.mode"
+    [currentDate]="calendar.currentDate"
+    (onCurrentDateChanged)="onCurrentDateChanged($event)"
+    (onRangeChanged)="reloadSource(startTime, endTime)"
+    (onEventSelected)="onEventSelected($event)"
+    (onTitleChanged)="onViewTitleChanged($event)"
+    [step]="calendar.step"
+    [monthviewDisplayEventTemplate]="template"
+    [monthviewEventDetailTemplate]="eventsTemplate"
+  ></calendar>
+
+</ion-content>
+
+<ion-footer class="bg-strongGray">
+  <app-footer [menuAtivo]="'agenda'"></app-footer>
+</ion-footer>

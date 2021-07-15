@@ -1,0 +1,16 @@
+/* DOES NOT WORK - not specific enough */
+.modal-wrapper {
+    --background: blue !important;
+    background: blue !important;
+}
+
+/* Works - pass "my-custom-class" in cssClass to increase specificity */
+.custom-modal .modal-wrapper {
+    --background: blue !important;
+    background: blue !important;
+}
+
+.custom-modal {
+    --background: blue !important;
+    background: blue !important;
+}

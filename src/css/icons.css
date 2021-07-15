@@ -1,0 +1,155 @@
+ion-icon[class*="icon-"] {
+    mask-size: contain;
+    mask-position: 50% 50%;
+    mask-repeat: no-repeat;
+    background: currentColor;
+    mask-size: 100% 100%;
+}
+
+ion-icon.bg-black{
+    background-color: black;
+}
+  
+ion-icon.check{
+    background-image: url('../assets/img/icons/icon-rounded-check.svg');
+    width: 22px;
+    height: 22px;
+}
+
+ion-icon.tiny-ellipse{
+    mask-image: url('../assets/img/icons/icon-tiny-ellipse.svg');
+    width: 5px;
+    height: 5px;
+}
+
+ion-icon.ellipse{
+    mask-image: url('../assets/img/icons/icon-ellipse.svg');
+    width: 8px;
+    height: 8px;
+}
+
+ion-icon.tiny-arrow{
+    mask-image: url('../assets/img/icons/icon-tiny-arrow.svg');
+    width: 7px;
+    height: 8px;
+}
+
+ion-icon.flag{
+    mask-image: url('../assets/img/icons/icon-flag.svg');
+    width: 14px;
+    height: 14px;
+}
+
+ion-icon.flag-outline{
+    background-image: url('../assets/img/icons/icon-flag-outline.svg');
+    width: 14px;
+    height: 14px;
+}
+
+ion-icon.calendar{
+    mask-image: url('../assets/img/icons/icon-calendar.svg');
+    width: 14px;
+    height: 14px;
+}
+
+ion-icon.calendar.icon-19{
+    width: 19px;
+    height: 19px;
+}
+
+ion-icon.check-circle{
+    background-image: url('../assets/img/icons/icon-check-circle.svg');
+    width: 30px;
+    height: 30px;
+}
+
+ion-icon.check-flat{
+    background-image: url('../assets/img/icons/icon-check-flat.svg');
+    width: 30px;
+    height: 22px;
+}
+
+ion-icon.house{
+    mask-image: url('../assets/img/icons/icon-house.svg');
+    width: 23px;
+    height: 21px;
+}
+
+ion-icon.play{
+    mask-image: url('../assets/img/icons/icon-play.svg');
+    width: 16px;
+    height: 20px;
+}
+
+
+ion-icon.bell{
+    mask-image: url('../assets/img/icons/icon-bell.svg');
+    width: 19px;
+    height: 20px;
+}
+
+ion-icon.bell-circle{
+    background-image: url('../assets/img/icons/icon-bell-circle.svg');
+    width: 19px;
+    height: 20px;
+}
+
+ion-icon.magnifier{
+    mask-image: url('../assets/img/icons/icon-magnifier.svg');
+    width: 24px;
+    height: 22px;
+}
+
+ion-icon.trophy{
+    mask-image: url('../assets/img/icons/icon-trophy.svg');
+    width: 21px;
+    height: 26px;
+}
+
+ion-icon.bunch-of-players{
+    mask-image: url('../assets/img/icons/icon-bunch-of-players.svg');
+    width: 33px;
+    height: 21px;
+}
+
+ion-icon.player{
+    mask-image: url('../assets/img/icons/icon-player.svg');
+    width: 26px;
+    height: 26px;
+}
+
+ion-icon.arrow-left{
+    mask-image: url('../assets/img/icons/icon-arrow-left.svg');
+    width: 18px;
+    height: 18px;
+}
+
+ion-icon.arrow-right{
+    mask-image: url('../assets/img/icons/icon-arrow-right.svg');
+    width: 18px;
+    height: 18px;
+}
+
+ion-icon.tiny-block{
+    mask-image: url('../assets/img/icons/icon-tiny-block.svg');
+    width: 8px;
+    height: 8px;
+}
+
+ion-icon.trash {
+    mask-image: url('../assets/img/icons/icon-trash.svg');
+    width: 15.76px;
+    height: 19.41px;
+}
+
+ion-icon.chevron-down {
+    mask-image: url('../assets/img/icons/icon-chevron-down.svg');
+    width: 9.89px;
+    height: 9.89px;
+}
+
+ion-icon.cog {
+    mask-image: url('../assets/img/icons/icon-cog.svg');
+    width: 22.48px;
+    height: 22.48px;
+}

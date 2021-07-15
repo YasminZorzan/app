@@ -1,0 +1,40 @@
+<ion-menu side="end" menuId="menu" contentId="main" class="backdrop-filter backdrop-blur m-4">
+  <div class="p-4 bg-black h-full overflow-y-hidden">
+    <ion-list class="bg-transparent">
+      <ion-item *ngFor="let item of menuItems" class="bg-transparent text-sm relative overflow-visible">
+        <span class="px-6 py-5 text-sm" [class.text-blue-light]="router.url == item.route"
+          [class.text-disabledGray]="router.url != item.route">{{item.label}}</span>
+        <div *ngIf="router.url == item.route" class="w-10 h-1 bg-blue-light absolute -bottom-1 mb-px left-4"></div>
+      </ion-item>
+      <ion-item class="bg-transparent text-sm relative overflow-visible text-disabledGray">
+        <div class="px-6 py-5 flex items-center space-x-4">
+          <svg width="18.984" height="19.848"><g data-name="Grupo 620" fill="currentcolor"><path data-name="Caminho 186" d="M10.139.647v9.075a.647.647 0 01-1.294 0V.647a.647.647 0 011.294 0zm0 0"/><path data-name="Caminho 188" d="M18.984 10.356A9.492 9.492 0 116.02 1.522a.647.647 0 11.474 1.2 8.2 8.2 0 106 0 .647.647 0 11.474-1.2 9.443 9.443 0 016.016 8.834zm0 0"/></g></svg>
+          <span class="text-sm">Sair</span>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-menu>
+
+<ion-content class="bg-strongGray" id="main">
+  <div class="p-4 flex flex-col h-full">
+    <div class="flex justify-between">
+      <h1 class="font-rajdhani font-medium text-5xl text-white lowercase opacity-10">minha<br /> conta</h1>
+      <ion-menu-button class="text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="18"><g data-name="Grupo 606" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path data-name="Linha 152" d="M1 1h21"/><path data-name="Linha 153" d="M1 9h21"/><path data-name="Linha 154" d="M1 17h21"/></g></svg>
+      </ion-menu-button>
+    </div>
+    <div class="flex items-center justify-between mt-5">
+      <span class="text-lg font-bold">Termos e Condições</span>
+      <a class="text-sm">< voltar</a>
+    </div>
+    <div class="p-5  bg-hardGray flex-1 mt-7 overflow-y-auto text-xs text-justify">
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+      <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer class="bg-strongGray">
+  <app-footer [menuAtivo]="'agenda'"></app-footer>
+</ion-footer>

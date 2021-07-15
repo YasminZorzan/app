@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="336" height="63.376" viewBox="0 0 336 63.376">
+  <g id="Grupo_553" data-name="Grupo 553" transform="translate(0)">
+    <rect id="Retângulo_80" data-name="Retângulo 80" width="30.267" height="3.426" transform="translate(49.69 10.608)"/>
+    <rect id="Retângulo_81" data-name="Retângulo 81" width="30.267" height="3.426" transform="translate(49.69 59.003)"/>
+    <rect id="Retângulo_82" data-name="Retângulo 82" width="28.897" height="3.178" transform="translate(49.69 34.164)"/>
+    <rect id="Retângulo_84" data-name="Retângulo 84" width="30.267" height="3.426" transform="translate(87.241 59.003)"/>
+    <rect id="Retângulo_86" data-name="Retângulo 86" width="51.821" height="3.426" transform="translate(239.385 10.608) rotate(90)"/>
+    <rect id="Retângulo_87" data-name="Retângulo 87" width="51.821" height="3.426" transform="translate(273.213 10.608) rotate(90)"/>
+    <rect id="Retângulo_89" data-name="Retângulo 89" width="22.273" height="3.426" transform="translate(248.809 14.034) rotate(180)"/>
+    <rect id="Retângulo_90" data-name="Retângulo 90" width="23.714" height="3.426" transform="translate(249.529 62.429) rotate(180)"/>
+    <rect id="Retângulo_91" data-name="Retângulo 91" width="23.714" height="3.426" transform="translate(312.841 62.429) rotate(-90)"/>
+    <g id="Grupo_709" data-name="Grupo 709">
+      <g id="Grupo_110" data-name="Grupo 110" transform="translate(113.679)">
+        <path id="Caminho_88" data-name="Caminho 88" d="M413.646,144.269c-13.574,0-22.627-9.881-22.627-22.931,0-.212.023-.415.027-.627l-3.5,5.418c2.06,13.049,12.537,21.6,26.1,21.6,10.408,0,20.064-5.529,23.458-15.925h-3.7C430.163,139.842,422.321,144.269,413.646,144.269Z" transform="translate(-327.517 -84.577)"/>
+        <path id="Caminho_89" data-name="Caminho 89" d="M338.529,72.37l4.83-7.482.07.138,1.046,2.006.868,1.668,9.17,17.61a1.564,1.564,0,0,0,2.109.548,1.5,1.5,0,0,0,.786-1.99L347.366,65.58a23.408,23.408,0,0,1,9.111-1.609c8.3,0,15.843,4.131,19.465,11.577h3.692c-3.619-9.878-13.047-14.82-23-15.041a28.993,28.993,0,0,0-10.849,2.028l-4.749-9.123H353.5a1.617,1.617,0,0,0,0-3.2H338.342a1.679,1.679,0,0,0-1.476,1.64,1.933,1.933,0,0,0,.235,1.015l2.392,4.593,1.954,3.758c-.009.011-.02.02-.029.031l-5.33,8.259c.011-.013.022-.024.032-.038l-3.365,5.217c.009-.02.018-.037.025-.056l-6.441,9.977-2.018,3.126-.536.829s-8.142,12.553-8.244,12.637c-4.081,5.564-10.663,8.922-18.491,8.922-13.125,0-22.778-9.506-22.778-23.148S283.853,63.9,297.127,63.9s22.854,9.513,22.854,23.075c0,.225-.025.433-.029.652l2.389-3.7,1.12-1.733.9-1.392-3.329-6.395-.534-1.026-7.187-13.8h7.343a1.619,1.619,0,0,0,0-3.2H305.5a1.618,1.618,0,0,0,0,3.2h4.169l2.615,5.023a28.031,28.031,0,0,0-15.228-4.241c-15.084,0-26.627,10.691-26.627,26.614s11.314,26.614,26.627,26.614c8.605,0,16.406-3.036,20.542-8.792,2.378-3.687,3.654-5.663,3.654-5.663l4.989-7.726,2.013-3.124,1.871-2.891,6.894-10.68Z" transform="translate(-270.425 -50.212)"/>
+      </g>
+      <path id="Caminho_90" data-name="Caminho 90" d="M48.631,70.909H52.84l18.452,45.347L89.743,70.909h4.046L71.939,122.73H70.32Z" transform="translate(-48.631 -60.301)"/>
+      <rect id="Retângulo_83" data-name="Retângulo 83" width="51.821" height="3.426" transform="translate(53.116 10.607) rotate(90)"/>
+      <rect id="Retângulo_85" data-name="Retângulo 85" width="51.821" height="3.426" transform="translate(90.667 10.607) rotate(90)"/>
+      <rect id="Retângulo_88" data-name="Retângulo 88" width="38.152" height="3.426" transform="translate(290.715 14.033) rotate(180)"/>
+      <path id="Caminho_91" data-name="Caminho 91" d="M619.867,70.909h4.208L641.718,96.9l17.318-25.991h4.047l-20.718,31.953h-1.619Z" transform="translate(-327.083 -60.301)"/>
+    </g>
+  </g>
+</svg>

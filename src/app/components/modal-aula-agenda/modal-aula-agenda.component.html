@@ -1,0 +1,44 @@
+<div class="w-screen h-screen p-5">
+  <div class="bg-lightGray h-full w-full flex flex-col text-black rounded-lg overflow-hidden">
+    <div class="aspect-w-16 aspect-h-9">
+      <img src="assets/img/bg-01.jpg" class="object-cover rounded-b-lg" alt="">
+    </div>
+    <div class="flex flex-col p-5 flex-1 justify-between">
+      <div class="flex flex-col">
+        <img src="assets/img/logo-velocity-amarelo-preto.svg" class="self-start" alt="Velocity">
+        <span class="mt-5">20 min para morrer na bike</span>
+        <span class="text-xs mt-2">Nome Sobrenome do Professor</span>
+        <div class="flex items-center justify-center relative mt-5">
+          <span class="text-xs absolute left-0">20'12"</span>
+          <span class="text-xs">8.927 visualizações</span>
+        </div>
+        <p class="text-xs mt-5">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
+      </div>
+      <div>
+        <div class="flex flex-col space-y-8">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white pl-2 py-px rounded-full text-sm relative flex items-center">
+              <ion-datetime placeholder="Data" class="text-xs w-full"></ion-datetime>
+              <ion-icon class="chevron-down bg-black pointer-events-none absolute right-6"></ion-icon>
+            </div>
+            <div class="bg-white pl-2 py-px rounded-full text-sm relative flex items-center">
+              <ion-datetime placeholder="Hora" class="text-xs w-full"></ion-datetime>
+              <ion-icon class="chevron-down bg-black pointer-events-none absolute right-6"></ion-icon>
+            </div>
+          </div>
+          <div class="grid grid-cols-2">
+            <ion-router-link routerLink="/buscar" class="text-center text-sm text-black underline">
+              <span>Desmarcar</span>
+            </ion-router-link>
+            <ion-router-link routerLink="/buscar" class="text-center text-sm text-black underline">
+              <span>Convidar amigos ></span>
+            </ion-router-link>
+          </div>
+          <ion-button class="h-10 px-6 bg-hardGray rounded-full text-white remove-shadow m-0 normal-case font-light text-xs self-center" color="clear">
+            Salvar
+          </ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

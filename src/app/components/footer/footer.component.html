@@ -1,0 +1,102 @@
+<ion-grid class="ion-no-padding text-sm font-light p-4">
+    <ion-row>
+        <ion-col size="3">
+            <ion-router-link [routerLink]="['/home']">
+                <ion-button class="inline-block size-50 button-no-padding remove-shadow" color="clear">
+                    <div class="rounded-full w-full h-full flex items-center justify-center bg-darkGray" [class.bg-blue-light]="router.url == '/home'">
+                        <ion-icon class="house bg-white"></ion-icon>
+                    </div>
+                </ion-button>
+            </ion-router-link>
+        </ion-col>
+        <ion-col size="6">
+
+            <div class="rounded-full w-full flex items-center justify-between bg-darkGray">
+
+                <ion-router-link [routerLink]="['/perfil']">
+                    <ion-button class="inline-block size-50 button-no-padding m-0 remove-shadow" color="clear">
+                        <div class="rounded-full w-full h-full flex items-center justify-center" [class.bg-blue-light]="router.url == '/perfil'">
+                            <div class="thumbnail-md rounded-full size-40 bg-darkGray bg-cover bg-center" *ngIf="profile" [style.background-image]="'url(' + profile.foto + ')'"></div>
+                        </div>
+                    </ion-button>
+                </ion-router-link>
+
+                <ion-router-link [routerLink]="['/agenda']">
+                    <ion-button class="inline-block size-50 button-no-padding m-0 remove-shadow" color="clear">
+                        <div class="rounded-full w-full h-full flex items-center justify-center" [class.bg-blue-light]="router.url == '/agenda'">
+                            <ion-icon class="calendar bg-white icon-19"></ion-icon>
+                        </div>
+                    </ion-button>
+                </ion-router-link>
+
+                <ion-router-link [routerLink]="['/notificacoes']">
+                    <ion-button class="inline-block size-50 button-no-padding m-0 remove-shadow" color="clear">
+                        <div class="rounded-full w-full h-full flex items-center justify-center" [class.bg-blue-light]="router.url == '/notificacoes'">
+                            <ion-icon class="bell bg-white" *ngIf="menuAtivo != 'notificacoes'"></ion-icon>
+                            <ion-icon class="bell-circle" *ngIf="menuAtivo == 'notificacoes'"></ion-icon>
+                        </div>
+                    </ion-button>
+                </ion-router-link>
+
+            </div>
+
+        </ion-col>
+        <ion-col size="3" class="text-right">
+            <ion-button class="inline-block size-50 button-no-padding relative z-10 remove-shadow" color="clear" (click)="menuAberto = !menuAberto">
+                <div class="rounded-full w-full h-full flex items-center justify-center" [ngClass]="(menuAberto==true)?'bg-blue-light':'bg-darkGray'">
+                    <ion-icon class="play" style="margin-right: -3px;" [ngClass]="(menuAberto==true)?'bg-black':'bg-white'"></ion-icon>
+                </div>
+            </ion-button>
+        </ion-col>
+    </ion-row>
+</ion-grid>
+
+<div class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 uppercase text-white p-4 text-right" *ngIf="menuAberto">
+    <div class="relative w-full h-full">
+        <div class="absolute bottom-14 w-full left-0">
+            <p class="font-robotoMono mb-5">
+                Buscar
+                <ion-router-link [routerLink]="['/buscar']">
+                    <ion-button class="inline-block size-50 button-no-padding m-0 align-middle ml-2" color="clear">
+                        <div class="rounded-full w-full h-full flex items-center justify-center bg-white">
+                            <ion-icon class="magnifier bg-black"></ion-icon>
+                        </div>
+                    </ion-button>
+                </ion-router-link>
+            </p>
+            <!-- 
+            <p class="font-robotoMono mb-5">
+                Desafios
+                <ion-router-link [routerLink]="['/desafios']">
+                    <ion-button class="inline-block size-50 button-no-padding m-0 align-middle ml-2" color="clear">
+                        <div class="rounded-full w-full h-full flex items-center justify-center bg-white">
+                            <ion-icon class="trophy bg-black"></ion-icon>
+                        </div>
+                    </ion-button>
+                </ion-router-link>
+            </p> -->
+
+            <p class="font-robotoMono mb-5">
+                Programas
+                <ion-router-link [routerLink]="['/programas']">
+                    <ion-button class="inline-block size-50 button-no-padding m-0 align-middle ml-2" color="clear">
+                        <div class="rounded-full w-full h-full flex items-center justify-center bg-white">
+                            <ion-icon class="bunch-of-players bg-black"></ion-icon>
+                        </div>
+                    </ion-button>
+                </ion-router-link>
+            </p>
+
+            <p class="font-robotoMono mb-5">
+                Aulas
+                <ion-router-link [routerLink]="['/aulas']">
+                    <ion-button class="inline-block size-50 button-no-padding m-0 align-middle ml-2" color="clear">
+                        <div class="rounded-full w-full h-full flex items-center justify-center bg-white">
+                            <ion-icon class="player bg-black"></ion-icon>
+                        </div>
+                    </ion-button>
+                </ion-router-link>
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,186 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Tailwind imports */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* CSS */
+@import "css/fonts.css";
+@import "css/icons.css";
+
+*{
+    font-family: 'Inter';
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: white;
+}
+ 
+@-webkit-keyframes autofill {
+    0%,
+    100% {
+        background: transparent;
+    }
+}
+ 
+input:-webkit-autofill {
+    -webkit-animation-delay: 1s; /* Safari support - any positive time runs instantly */
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+}
+
+/*------ Para sobreescrever os bg do ionic -----*/
+
+.bg-black{
+    --background: black;
+}
+
+.bg-strongGray{
+    --background: #2E2E2E;
+}
+
+.bg-mediumGray{
+    --background: #4A4A4A;
+}
+
+.bg-transparent{
+    --background: transparent;
+}
+
+/*------------------------------------------------*/
+
+.remove-shadow{
+    --box-shadow: none;
+}
+
+.thumbnail-md{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-inline-start{
+    --ion-safe-area-left: 0;
+}
+
+.p-inline-end{
+    --ion-safe-area-right: 0;
+}
+
+.size-30{
+    width: 30px;
+    height: 30px;
+}
+  
+.size-40{
+    width: 40px;
+    height: 40px;
+}
+
+.size-50{
+    width: 50px;
+    height: 50px;
+}
+
+.button-no-padding{
+    --padding-start: 0;
+    --padding-end: 0;
+}
+
+.gradient-top:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, rgba(0,0,0,0.2) 20%, rgba(0,0,0) 80%);
+}
+
+.gradient-bottom:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 20%, rgba(0,0,0) 80%);
+}
+
+/*---------------- Estilo da agenda ---------------*/
+
+.monthview-datetable thead{
+    display: none !important;
+}
+
+.monthview-datetable{
+    border:0 !important;
+}
+
+.monthview-datetable td{
+    background-color: black !important;
+    height: 68px !important;
+    border: 5px solid #2E2E2E !important;
+    color: white !important;
+    font-size: 10px !important;
+    font-weight: 300 !important;
+    font-family: 'Roboto Mono' !important;
+    text-align: right !important;
+    padding: 4px !important;
+}
+
+/*------------------------------------------------*/
+
+/*--------------- Custom Modal -------------------*/
+.default-modal .modal-wrapper, .modal-usuarios .modal-wrapper, .modal-excluir-usuario .modal-wrapper, .modal-excluir-cartao .modal-wrapper, .modal-enviar-foto .modal-wrapper, .modal-feedback .modal-wrapper, .modal-dia-agenda .modal-wrapper {
+    @apply bg-transparent pointer-events-none;
+}
+/*------------------------------------------------*/
+
+
+/*--------------- Custom Checkbox -------------------*/
+
+ion-checkbox {
+    --checkmark-color: transparent;
+    --background: transparent;
+    --background-checked: #8DFFFD;
+    --border-color: transparent;
+    --border-color-checked: #8DFFFD;
+    border: 1px solid #747474;
+    padding: 3px;
+    border-radius: 5px;
+}
+ion-checkbox.circle {
+    --border-radius: 50% !important;
+    border-radius: 50% !important;
+}
+ion-checkbox.checkbox-checked {
+    border: 1px solid #8DFFFD;
+}
+
+/*------------------------------------------------*/

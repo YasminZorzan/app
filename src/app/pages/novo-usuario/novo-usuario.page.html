@@ -1,0 +1,143 @@
+<ion-menu side="end" menuId="menu" contentId="main" class="backdrop-filter backdrop-blur m-4">
+  <div class="p-4 bg-black h-full overflow-y-hidden">
+    <ion-list class="bg-transparent">
+      <ion-item *ngFor="let item of menuItems" class="bg-transparent text-sm relative overflow-visible">
+        <span class="px-6 py-5 text-sm" [class.text-blue-light]="router.url == item.route"
+          [class.text-disabledGray]="router.url != item.route">{{item.label}}</span>
+        <div *ngIf="router.url == item.route" class="w-10 h-1 bg-blue-light absolute -bottom-1 mb-px left-4"></div>
+      </ion-item>
+      <ion-item class="bg-transparent text-sm relative overflow-visible text-disabledGray">
+        <div class="px-6 py-5 flex items-center space-x-4">
+          <svg width="18.984" height="19.848">
+            <g data-name="Grupo 620" fill="currentcolor">
+              <path data-name="Caminho 186"
+                d="M10.139.647v9.075a.647.647 0 01-1.294 0V.647a.647.647 0 011.294 0zm0 0" />
+              <path data-name="Caminho 188"
+                d="M18.984 10.356A9.492 9.492 0 116.02 1.522a.647.647 0 11.474 1.2 8.2 8.2 0 106 0 .647.647 0 11.474-1.2 9.443 9.443 0 016.016 8.834zm0 0" />
+            </g>
+          </svg>
+          <span class="text-sm">Sair</span>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-menu>
+
+<ion-content class="bg-strongGray" id="main">
+  <div class="p-4 flex flex-col h-full">
+    <div class="flex justify-between">
+      <h1 class="font-rajdhani font-medium text-5xl text-white lowercase opacity-10">minha<br /> conta</h1>
+      <ion-menu-button class="text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="18">
+          <g data-name="Grupo 606" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2">
+            <path data-name="Linha 152" d="M1 1h21" />
+            <path data-name="Linha 153" d="M1 9h21" />
+            <path data-name="Linha 154" d="M1 17h21" />
+          </g>
+        </svg>
+      </ion-menu-button>
+    </div>
+    <div class="flex items-center justify-between mt-5">
+      <span class="text-lg font-bold">Nova conta</span>
+      <a class="text-sm">
+        < voltar</a>
+    </div>
+    <div class="flex-1 flex flex-col justify-between pt-9">
+      <form [formGroup]="registrationForm">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="col-span-2">
+            <div class="px-4 border rounded-full relative focus:border-blue-light focus:text-blue-light"
+              [ngClass]="{'border-alertRed text-alertRed' : registrationForm.get('email').errors && registrationForm.get('email').touched , 'border-white text-white' : registrationForm.get('email').touched && registrationForm.get('email').valid, 'border-softGray text-softGray' : !registrationForm.get('email').touched}">
+              <ion-input placeholder="E-mail" type="email" name="email" formControlName="email"
+                autocomplete="chrome-off" class="text-sm"></ion-input>
+              <ion-icon class="check absolute top-1/2 right-3 transform -translate-y-1/2"
+                *ngIf="!registrationForm.get('email').invalid && (!registrationForm.get('email').dirty || registrationForm.get('email').touched)">
+              </ion-icon>
+            </div>
+            <app-error-handling [field]="registrationForm.get('email')" fieldName="E-mail"></app-error-handling>
+          </div>
+          <div>
+            <div class="px-4 border rounded-full relative focus:border-blue-light focus:text-blue-light"
+              [ngClass]="{'border-alertRed text-alertRed' : registrationForm.get('nome').errors && registrationForm.get('nome').touched , 'border-white text-white' : registrationForm.get('nome').touched && registrationForm.get('nome').valid, 'border-softGray text-softGray' : !registrationForm.get('nome').touched}">
+              <ion-input placeholder="Nome" type="nome" name="nome" formControlName="nome"
+                autocomplete="chrome-off" class="text-sm"></ion-input>
+              <ion-icon class="check absolute top-1/2 right-3 transform -translate-y-1/2"
+                *ngIf="!registrationForm.get('nome').invalid && (!registrationForm.get('nome').dirty || registrationForm.get('nome').touched)">
+              </ion-icon>
+            </div>
+            <app-error-handling [field]="registrationForm.get('nome')" fieldName="Nome"></app-error-handling>
+          </div>
+          <div>
+            <div class="px-4 border rounded-full relative focus:border-blue-light focus:text-blue-light"
+              [ngClass]="{'border-alertRed text-alertRed' : registrationForm.get('sobrenome').errors && registrationForm.get('sobrenome').touched , 'border-white text-white' : registrationForm.get('sobrenome').touched && registrationForm.get('sobrenome').valid, 'border-softGray text-softGray' : !registrationForm.get('sobrenome').touched}">
+              <ion-input placeholder="Sobrenome" type="sobrenome" name="sobrenome" formControlName="sobrenome"
+                autocomplete="chrome-off" class="text-sm"></ion-input>
+              <ion-icon class="check absolute top-1/2 right-3 transform -translate-y-1/2"
+                *ngIf="!registrationForm.get('sobrenome').invalid && (!registrationForm.get('sobrenome').dirty || registrationForm.get('sobrenome').touched)">
+              </ion-icon>
+            </div>
+            <app-error-handling [field]="registrationForm.get('sobrenome')" fieldName="Sobrenome"></app-error-handling>
+          </div>
+          <div class="col-span-2">
+            <div class="px-4 border rounded-full relative focus:border-blue-light focus:text-blue-light"
+              [ngClass]="{'border-alertRed text-alertRed' : registrationForm.get('username').errors && registrationForm.get('username').touched , 'border-white text-white' : registrationForm.get('username').touched && registrationForm.get('username').valid, 'border-softGray text-softGray' : !registrationForm.get('username').touched}">
+              <ion-input placeholder="Username" type="username" name="username" formControlName="username"
+                autocomplete="chrome-off" class="text-sm"></ion-input>
+              <ion-icon class="check absolute top-1/2 right-3 transform -translate-y-1/2"
+                *ngIf="!registrationForm.get('username').invalid && (!registrationForm.get('username').dirty || registrationForm.get('username').touched)">
+              </ion-icon>
+            </div>
+            <app-error-handling [field]="registrationForm.get('username')" fieldName="Username"></app-error-handling>
+          </div>
+          <div class="col-span-2">
+            <div class="px-4 border rounded-full relative focus:border-blue-light focus:text-blue-light"
+              [ngClass]="{'border-alertRed text-alertRed' : registrationForm.get('localizacao').errors && registrationForm.get('localizacao').touched , 'border-white text-white' : registrationForm.get('localizacao').touched && registrationForm.get('localizacao').valid, 'border-softGray text-softGray' : !registrationForm.get('localizacao').touched}">
+              <ion-input placeholder="Localização" type="localizacao" name="localizacao" formControlName="localizacao"
+                autocomplete="chrome-off" class="text-sm"></ion-input>
+              <ion-icon class="check absolute top-1/2 right-3 transform -translate-y-1/2"
+                *ngIf="!registrationForm.get('localizacao').invalid && (!registrationForm.get('localizacao').dirty || registrationForm.get('localizacao').touched)">
+              </ion-icon>
+            </div>
+            <app-error-handling [field]="registrationForm.get('localizacao')" fieldName="Localização"></app-error-handling>
+          </div>
+          
+          <!-- <div class="px-4 border rounded-full relative"
+            [ngClass]="{'border-blue-light text-blue-light' : nome.touched && !nome.valid , 'border-white text-white' : nome.touched && nome.valid, 'border-softGray text-softGray' : !nome.touched}">
+            <ion-input placeholder="Nome" type="nome" name="nome" formControlName="nome" autocomplete="chrome-off"
+              class="text-sm"></ion-input>
+            <ion-icon class="check absolute top-1/2 right-3 transform -translate-y-1/2"
+              *ngIf="!nome.invalid && (!nome.dirty || nome.touched)"></ion-icon>
+          </div>
+          <div class="px-4 border rounded-full relative"
+            [ngClass]="{'border-blue-light text-blue-light' : sobrenome.touched && !sobrenome.valid , 'border-white text-white' : sobrenome.touched && sobrenome.valid, 'border-softGray text-softGray' : !sobrenome.touched}">
+            <ion-input placeholder="Sobrenome" type="sobrenome" name="sobrenome" formControlName="sobrenome"
+              autocomplete="chrome-off" class="text-sm"></ion-input>
+            <ion-icon class="check absolute top-1/2 right-3 transform -translate-y-1/2"
+              *ngIf="!sobrenome.invalid && (!sobrenome.dirty || sobrenome.touched)"></ion-icon>
+          </div>
+          <div class="px-4 border rounded-full relative col-span-2"
+            [ngClass]="{'border-blue-light text-blue-light' : nomeUsuario.touched && !nomeUsuario.valid , 'border-white text-white' : nomeUsuario.touched && nomeUsuario.valid, 'border-softGray text-softGray' : !nomeUsuario.touched}">
+            <ion-input placeholder="Nome de usuário" type="nomeUsuario" name="nomeUsuario" formControlName="nomeUsuario"
+              autocomplete="chrome-off" class="text-sm"></ion-input>
+            <ion-icon class="check absolute top-1/2 right-3 transform -translate-y-1/2"
+              *ngIf="!nomeUsuario.invalid && (!nomeUsuario.dirty || nomeUsuario.touched)"></ion-icon>
+          </div>
+          <div class="px-4 border rounded-full relative col-span-2"
+            [ngClass]="{'border-blue-light text-blue-light' : localizacao.touched && !localizacao.valid , 'border-white text-white' : localizacao.touched && localizacao.valid, 'border-softGray text-softGray' : !localizacao.touched}">
+            <ion-input placeholder="Localização" type="localizacao" name="localizacao" formControlName="localizacao"
+              autocomplete="chrome-off" class="text-sm"></ion-input>
+            <ion-icon class="check absolute top-1/2 right-3 transform -translate-y-1/2"
+              *ngIf="!localizacao.invalid && (!localizacao.dirty || localizacao.touched)"></ion-icon>
+          </div> -->
+        </div>
+      </form>
+      <ion-button (click)="Salvar()" size="large" class="bg-blue-light font-normal rounded-full text-black normal-case text-xs self-center"
+        color="clear">
+        <span class="py-20 px-7">Criar</span>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
+<ion-footer class="bg-strongGray">
+  <app-footer [menuAtivo]="'agenda'"></app-footer>
+</ion-footer>

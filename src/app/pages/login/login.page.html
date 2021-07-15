@@ -1,0 +1,36 @@
+<ion-content class="bg-black">
+	<div class="p-8 text-sm text-center text-white">
+		<p>
+			Ainda não possui uma conta? <br/>
+			<a class="underline font-bold">Experimente 30 dias grátis</a>
+		</p>
+
+		<img src="/assets/img/logo-sweatify-branco.svg" alt="Sweatify" class="mx-auto block my-10">
+
+		<div class="mt-28 mb-6">
+			<img src="/assets/img/btn-facebook.svg" alt="Login com Facebook" class="inline mr-4">
+			<img src="/assets/img/btn-google.svg" alt="Login com Google" class="inline mr-4">
+			<img src="/assets/img/btn-apple.svg" alt="Login com Apple" class="inline">
+		</div>
+		<form (submit)="login()">
+			<div class="text-left">
+				<div class="px-4 border border-white rounded-full mb-4">
+					<ion-input placeholder="E-mail ou nome de usuário" type="email" name="email" required [(ngModel)]="userName" autocomplete="chrome-off" class="text-sm"></ion-input>
+				</div>
+				<div class="px-4 border border-white rounded-full">
+					<ion-input placeholder="Senha" type="password" name="password" required [(ngModel)]="password" autocomplete="chrome-off" class="text-sm"></ion-input>
+				</div>
+			</div>
+
+			<div class="block text-center mt-6 mb-3">
+				<ion-button type="submit" class="px-10 bg-blue-light rounded-full text-black remove-shadow" color="clear">Entrar</ion-button>
+			</div>
+
+			<div class="bg-red-600 text-white p-2 rounded-lg mb-4" *ngIf="erro">
+				E-mail ou senha inválidos.
+			</div>
+
+			<ion-router-link [routerLink]="['/recuperar-senha']" class="underline text-white">Esqueci minha senha</ion-router-link>
+		</form>		
+	</div>
+</ion-content>

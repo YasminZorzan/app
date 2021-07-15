@@ -1,0 +1,234 @@
+<ion-content class="bg-strongGray">
+    <div class="p-4">
+        <h1 class="font-rajdhani font-medium text-6xl text-gray mb-8">bem-vindo <br> de volta!</h1>
+
+        <!------------- Destaque ------------->
+        <!------------------------------------>
+        <div>
+            <ion-item *ngFor="let aula of aulasDestaque" lines="none" class="bg-transparent p-inline-start p-inline-end p-4 rounded-xl text-white shadow bg-cover bg-center" [style.background-image]="'url(' + destaque + ')'">
+                <div class=" pt-52 w-full">
+                    <img src="/assets/img/logo-velocity.svg" alt="Perfil" class="mb-6">
+                    <p class="text-xl mb-3">{{aula.titulo}}</p>
+
+                    <ion-grid class="ion-no-padding text-sm font-light p-0">
+                        <ion-row>
+                            <ion-col size="3">
+                                {{aula.duracao}}
+                            </ion-col>
+                            <ion-col size="9">
+                                {{aula.professor}}
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                    <ion-grid class="ion-no-padding px-0 py-4 text-black">
+                        <ion-row>
+                            <ion-col size="9">
+                                <ion-router-link [routerLink]="['/player']">
+                                    <ion-button class="h-10 px-6 bg-normalGray rounded-full text-black remove-shadow m-0" color="clear">
+                                        Assistir agora >
+                                    </ion-button>
+                                </ion-router-link>
+                            </ion-col>
+                            <ion-col size="3" class="text-right">
+                                <ion-button class="inline-block size-40 button-no-padding" color="clear">
+                                    <div class="rounded-full w-full h-full flex items-center justify-center bg-floatGray">
+                                        <ion-icon class="calendar bg-hardGray"></ion-icon>
+                                    </div>
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </div>
+
+            </ion-item>
+        </div>
+
+        <!-- </div> -->
+        <!--------------- Aulas -------------->
+        <!------------------------------------>
+
+        <ion-grid class="ion-no-padding mt-12 mb-3">
+            <ion-row>
+                <ion-col size="9">
+                    <h2 class="font-rajdhani font-medium text-7xl text-softGray">aulas</h2>
+                </ion-col>
+                <ion-col size="3" class="flex items-center justify-end">
+                    <p class="text-white uppercase text-medium font-robotoMono">agenda ></p>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <div class="clear-both w-full overflow-auto">
+            <div scrollX="true" class="clear-both h-full" [style.width]="(298*aulasDestaque.length)+'px'">
+                <div class="float-left h-100" style="width: 288px; margin-right: 10px" *ngFor="let aula of aulasDestaque">
+                    <app-card-aula [aula]="aula" [salvo]="false" [calendario]="false" [check]="false"></app-card-aula>
+                </div>
+            </div>
+        </div>
+
+        <!--------------- Lives -------------->
+        <!------------------------------------>
+
+        <ion-grid class="ion-no-padding mt-12 mb-3">
+            <ion-row>
+                <ion-col size="6">
+                    <h2 class="font-rajdhani font-medium text-7xl text-softGray">lives</h2>
+                </ion-col>
+                <ion-col size="6" class="flex items-center justify-end">
+                    <p class="text-white uppercase font-light font-robotoMono text-xs">Ver todos ></p>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <app-card-live *ngFor="let live of lives" [fotoDestaque]="live.fotoDestaque" [empresa]="live.idProduto" [tipoDeTreino]="live.tipoDeTreino" [equipamento]="live.equipamento" [tituloDaLive]="live.titulo" [professor]="live.professor" [tipoDeLive]="live.tipoDeLive"
+            [data]="live.dataEvento" [hora]="live.hora" [duracao]="live.duracao"></app-card-live>
+
+        <!------------- Novidades ------------>
+        <!------------------------------------>
+
+        <ion-grid class="ion-no-padding mt-12 mb-3">
+            <ion-row>
+                <ion-col size="9">
+                    <h2 class="font-rajdhani font-medium text-6xl text-softGray">novidades</h2>
+                </ion-col>
+                <ion-col size="3" class="flex items-center justify-end text-right">
+                    <p class="text-white uppercase font-light font-robotoMono text-xs">Ver todos ></p>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <div class="clear-both w-full overflow-auto">
+            <div scrollX="true" class="clear-both h-full" [style.width]="(298*aulasDestaque.length)+'px'">
+                <div class="float-left h-100" style="width: 288px; margin-right: 10px" *ngFor="let aula of aulasDestaque">
+                    <app-card-aula [aula]="aula" [salvo]="false" [calendario]="false" [check]="false"></app-card-aula>
+                </div>
+            </div>
+        </div>
+
+        <!------------- Aventuras ------------>
+        <!------------------------------------>
+
+        <!-- <ion-grid class="ion-no-padding mt-12 mb-3">
+			<ion-row>
+			  <ion-col size="9">
+				<h2 class="font-rajdhani font-medium text-5xl text-softGray">aventuras</h2>
+			  </ion-col>
+			  <ion-col size="3" class="flex items-center justify-end text-right">
+				<p class="text-white uppercase font-light font-robotoMono text-xs">Ver todos ></p>
+			  </ion-col>
+			</ion-row>
+		</ion-grid>
+
+		<div class="clear-both w-full overflow-auto">
+			<div scrollX="true" class="clear-both h-full" [style.width]="(275*programas.length)+'px'">
+				<div class="float-left h-100" style="width: 265px; margin-right: 10px" *ngFor="let programa of programas">
+					<app-card-programa
+						[cardHeight]="410"
+						[tipoDoCard]="programa.tipoDoCard"
+						[bg]="programa.bg"
+						[titulo]="programa.titulo"
+						[quantidadeDeAulas]="programa.quantidadeDeAulas"
+						[vezesConcluido]="programa.vezesConcluido"
+						[link]="programa.link"
+						[engajamento]="programa.engajamento"
+						[descricaoDesafio]="programa.descricaoDesafio"
+						[datasDesafio]="programa.datasDesafio"
+					></app-card-programa>
+				</div>
+			</div>
+		</div> -->
+
+    </div>
+
+    <!------------- Velocity ------------->
+    <!------------------------------------>
+
+    <div class="bg-warningYellow text-black p-4">
+        <img src="/assets/img/logo-velocity-preto.svg" alt="Velocity" class="w-100 mx-auto py-12">
+        <p class="pb-3 text-lg mx-3">Leve a mágica da Velocity para dentro da sua casa.</p>
+        <p class=" mx-3 font-robotoMono uppercase font-light text-sm">Compre sua bike ></p>
+
+        <div class="clear-both w-full overflow-auto py-8">
+            <div scrollX="true" class="clear-both h-full" [style.width]="(298*aulasDestaque.length)+'px'">
+                <div class="float-left h-100" style="width: 288px; margin-right: 10px" *ngFor="let aula of aulasVelocity">
+                    <app-card-aula [aula]="aula" [salvo]="false" [calendario]="false" [check]="false"></app-card-aula>
+                </div>
+            </div>
+        </div>
+
+        <p class="font-robotoMono uppercase font-light text-sm text-center mb-8">Ver Todos os treinos ></p>
+    </div>
+
+    <!----------- Os melhores ------------>
+    <!------------------------------------>
+    <div class="p-4">
+        <ion-grid class="ion-no-padding mt-12 mb-3">
+            <ion-row>
+                <ion-col size="9">
+                    <h2 class="font-rajdhani font-medium text-5xl text-softGray">os melhores</h2>
+                </ion-col>
+                <ion-col size="3" class="flex items-center justify-end text-right">
+                    <p class="text-white uppercase font-light font-robotoMono text-xs">Ver todos ></p>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+
+
+        <div class="clear-both w-full overflow-auto">
+            <div scrollX="true" class="clear-both h-full" [style.width]="(210*instrutores.length)+'px'">
+                <div class="float-left h-100" style="width: 200px; margin-right: 10px" *ngFor="let professor of instrutores">
+                    <app-card-professor [bg]="professor.fotoDestaque" [nome]="professor.nome" [quantidadeDeAulas]="professor.qtdAulas" [visualizacoes]="professor.qtdAulasAssistidas">
+                    </app-card-professor>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--------------- Kore --------------->
+    <!------------------------------------>
+
+    <div class="bg-alertRed text-black p-4 mt-8">
+        <img src="/assets/img/logo-kore-preto.svg" alt="Kore" class="w-10/12 mx-auto py-12">
+        <p class="pb-3">Para obter o maior resultado no menor tempo possível.</p>
+        <p class="font-robotoMono uppercase font-light text-sm">Compre o Kit kore ></p>
+
+        <div class="clear-both w-full overflow-auto py-8">
+            <div scrollX="true" class="clear-both h-full" [style.width]="(298*aulasDestaque.length)+'px'">
+                <div class="float-left mr-2 h-100" style="width: 288px; margin-right: 10px" *ngFor="let aula of aulasKore">
+                    <app-card-aula class="" [aula]="aula" [salvo]="false" [calendario]="false" [check]="false"></app-card-aula>
+                </div>
+            </div>
+        </div>
+
+        <p class="font-robotoMono uppercase font-light text-sm text-center mb-8">Ver Todos os treinos ></p>
+    </div>
+
+    <!-------------- Juntos -------------->
+    <!------------------------------------>
+    <div class="p-4">
+        <ion-grid class="ion-no-padding mt-12 mb-3">
+            <ion-row>
+                <ion-col size="6">
+                    <h2 class="font-rajdhani font-medium text-5xl text-softGray">juntos</h2>
+                </ion-col>
+                <ion-col size="6" class="flex items-center justify-end text-right">
+                    <p routerLink="/buscar" class="text-white uppercase font-light font-robotoMono text-xs">Encontre amigos ></p>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <div class="clear-both w-full overflow-auto py-8">
+            <div scrollX="true" class="clear-both h-full" [style.width]="(180*amizades.length)+'px'">
+                <div class="float-left mr-2 h-100" style="width: 170px; margin-right: 10px" *ngFor="let amigo of amizades">
+                    <app-card-amigo [foto]="amigo.fotoDestaque" [nome]="amigo.nome" [local]="amigo.local">
+                    </app-card-amigo>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>
+<ion-footer class="bg-strongGray">
+    <app-footer [menuAtivo]="'agenda'" [profile]="profile"></app-footer>
+</ion-footer>

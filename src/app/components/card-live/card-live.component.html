@@ -1,0 +1,66 @@
+<ion-item lines="none" class="card-live border-l-5 bg-transparent p-inline-start p-inline-end p-2 rounded-xl text-white shadow bg-mediumGray mb-3" [class.border-alertRed]="idProduto == 2" [class.border-warningYellow]="idProduto == 1">
+    <div class="w-full">
+        <ion-grid class="ion-no-padding text-sm font-light p-0 border-b border-darkGray">
+            <ion-row>
+                <ion-col size="3" class="flex items-end pr-2" *ngIf="fotoDestaque">
+                    <img [src]="fotoDestaque" alt="Treinador da Live" />
+                </ion-col>
+                <ion-col size="9">
+                    <ion-grid class="ion-no-padding font-light p-0 mb-3">
+                        <!-- <ion-row>
+              <ion-col class="text-sm" size="3" [ngClass]="{'border-darkGray border-r': tipoDeTreino != '' || equipamento == false}">
+                {{live.idProduto == 2 ? 'Velocity' : 'Kore'}}
+              </ion-col>
+              <ion-col class="text-tiny text-center" size="4" *ngIf="tipoDeTreino" [ngClass]="{'border-darkGray border-r': equipamento == false}">
+                {{tipoDeTreino}}
+              </ion-col>
+              <ion-col class="text-tiny text-center" size="5" *ngIf="!equipamento">
+                Sem equipamento
+              </ion-col>
+            </ion-row> -->
+                        <div class="flex divide-x divide-darkGray">
+                            <div class="text-tiny pr-3">
+                                {{idProduto == 2 ? 'Velocity' : 'Kore'}}
+                            </div>
+                            <div class="text-tiny px-3">
+                                Tipo Treino
+                            </div>
+                            <div class="text-tiny pl-3">
+                                Sem equipamento
+                            </div>
+                        </div>
+                    </ion-grid>
+
+                    <h2>{{titulo}}</h2>
+                    <p class="text-tiny">{{professor}}</p>
+                    <p class="text-tiny font-robotoMono uppercase pb-2 align-middle">
+                        <ng-container *ngIf="!liveFutura">
+                            <ion-icon class="tiny-ellipse bg-lemonGreen align-middle"></ion-icon>
+                            <span class="text-lemonGreen pl-1 align-middle">Começou há {{tempoRestante}}</span>
+                        </ng-container>
+                        <ng-container *ngIf="liveFutura">
+                            <ion-icon class="tiny-ellipse bg-disabledGray align-middle"></ion-icon>
+                            <span class="text-disabledGray pl-1 align-middle">Começa em {{tempoestante}}</span>
+                        </ng-container>
+                    </p>
+
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <ion-grid class="ion-no-padding px-0 pt-2 text-white font-robotoMono text-center">
+            <ion-row>
+                <ion-col>
+                    <!-- <p class="uppercase text-xs">{{tipoDeLive}}</p> -->
+                    <p class="uppercase text-xs">aula ao vivo</p>
+                </ion-col>
+                <ion-col *ngIf="dataEvento">
+                    <p class="text-tiny font-bold">{{dataEvento | date:'dd/MM/yyyy'}} <span>|</span> {{dataEvento | date:'HH:mm'}}</p>
+                </ion-col>
+                <ion-col *ngIf="duracao">
+                    <p class="text-tiny font-light">DURAÇÃO {{duracao}}</p>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-item>

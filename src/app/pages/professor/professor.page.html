@@ -1,0 +1,19 @@
+<ion-content class="bg-strongGray" id="main" *ngIf="instrutor">
+  <div class="p-4 pt-9">
+    <ion-router-link routerLink="/professores" class="font-bold text-white">< voltar</ion-router-link>
+    <div class="flex mt-7 space-x-6">
+      <img src="{{instrutor.fotoDestaque}}" class="w-20 rounded-md" alt="">
+      <div class="flex flex-col space-y-3 pt-1">
+        <span class="font-bold text-lg">{{instrutor.nome}}</span>
+        <div class="w-1/2 border-t border-darkGray"></div>
+        <span>{{instrutor.qtdAulas}} aulas</span>
+        <span>{{instrutor.qtdAulasAssistidas}} visualizações</span>
+      </div>
+    </div>
+    <p class="text-disabledGray mt-5 text-md">{{instrutor.sobre}}</p>
+    <div class="grid grid-cols-1 gap-4 mt-14">
+      <app-card-aula *ngFor="let aula of aulas" class="" [aula]="aula" [salvo]="false"
+        [calendario]="false" [check]="false"></app-card-aula>
+    </div>
+  </div>
+</ion-content>

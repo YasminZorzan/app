@@ -1,0 +1,20 @@
+<ion-content class="bg-strongGray">
+  <div class="p-4">
+    <h1 class="font-rajdhani font-medium text-5xl text-white lowercase opacity-10">Notificações</h1>
+    <div class="flex flex-col divide-y divide-softGray mt-8">
+      <div class="flex space-x-4 px-2 py-4" *ngFor="let item of notificacoes" (click)="clickNotificacao(item)">
+        <div class="w-10 h-10 rounded-full bg-softGray flex-shrink-0 bg-center bg-cover" [style.background-image]="'url(' + getExtrasNotificacao(item.extras).FotoDestaque + ')'"></div>
+        <p class="text-xs"><span class="font-bold">{{getExtrasNotificacao(item.extras).Username}}</span> {{item.texto}} <span class="font-bold">{{item.dataCriacao | date:'dd/MM'}} • {{item.dataCriacao | date:'HH:mm'}}</span><!-- - 24 de abril • 10:00am --></p>
+      </div>
+    </div>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="onScroll($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+</ion-content>
+<ion-footer class="bg-strongGray">
+  <app-footer [menuAtivo]="'agenda'"></app-footer>
+</ion-footer>

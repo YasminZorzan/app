@@ -1,0 +1,13 @@
+<div class="w-screen h-screen pointer-events-none flex items-center justify-center">
+  <div class="sw-blur w-8/12 flex flex-col p-4 rounded-xl pointer-events-auto items-center space-y-3">
+    <span>Você concluiu</span>
+    <img src="assets/img/logo-velocity.svg" alt="Velocity" class="self-center">
+    <span class="text-lg text-center">20 minutos para morrer na bike</span>
+    <div class="w-10/12 border-t border-white"></div>
+    <span class="text-sm font-bold uppercase text-center">Avalie sua experiência</span>
+    <app-rating (rateChanged)="recebeScore($event)"></app-rating>
+    <ion-button class="h-10 px-6 bg-white rounded-full text-black remove-shadow m-0 normal-case font-light text-xs self-center" color="clear">
+      Enviar
+    </ion-button>
+  </div>
+</div>

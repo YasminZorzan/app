@@ -1,0 +1,37 @@
+<ion-content class="bg-black">
+	<div class="p-8 text-center text-white">
+
+		<img src="/assets/img/logo-simples-sweatify-branco.svg" alt="Sweatify" class="mx-auto block my-10">
+
+    	<h1 class="font-rajdhani text-lg text-softGray mb-12">Quem está usando a conta?</h1>
+
+		<ion-item [class.active]="user.active == true" lines="none" class="bg-black p-inline-start p-inline-end text-white mb-3 item-user" *ngFor="let user of profiles" (click)="setProfile(user)">
+			<ion-grid [routerLink]="['/home']">
+				<ion-row>
+					<ion-col class="text-center" size="5">
+						<div class="thumbnail-md rounded-full bg-darkGray bg-cover bg-center" [style.background-image]="'url(' + user.foto + ')'">
+              				<span class="font-rajdhani text-4xl font-bold" *ngIf="user.foto == ''">DG</span>
+           				</div>
+					</ion-col>
+					<ion-col class="text-center flex items-center" size="7">
+						<p>{{user.nome}}</p>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-item>
+
+		<ion-item lines="none" class="bg-black p-inline-start p-inline-end text-white mt-24">
+			<ion-grid class="ion-no-padding" [routerLink]="['/nova-conta']">
+				<ion-row>
+					<ion-col class="text-center" size="5">
+						<img src="/assets/img/btn-user.svg" alt="Perfil" class="mx-auto">
+					</ion-col>
+					<ion-col class="text-center flex items-center" size="7">
+						<p class="text-sm text-softGray">Adicionar perfil</p>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-item>
+	
+	</div>
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-content class="bg-strongGray" id="main">
+  <div class="p-4 pt-10">
+    <h1 class="font-rajdhani font-medium text-5xl text-white lowercase opacity-50">Professores</h1>
+    <div class="w-full flex items-center justify-center relative mt-10 mb-9">
+      <span class="text-sm">Organizar por:</span>
+      <ion-select value="az" class="text-sm absolute right-0" [(ngModel)]="sortParam" (ngModelChange)="sortInstrutores(sortParam)">
+        <ion-select-option value="az">A > Z</ion-select-option>
+        <ion-select-option value="za">Z > A</ion-select-option>
+        <ion-select-option value="aulas">Aulas</ion-select-option>
+        <ion-select-option value="views">Visualizações</ion-select-option>
+      </ion-select>
+    </div>
+    <div class="grid grid-cols-2 gap-3">
+      <ion-router-link *ngFor="let instrutor of instrutores" [routerLink]="'/professor/' + instrutor.id">
+        <app-card-professor
+          [bg]="instrutor.fotoDestaque"
+          [nome]="instrutor.nome"
+          [quantidadeDeAulas]="instrutor.qtdAulas"
+          [visualizacoes]="instrutor.qtdAulasAssistidas">
+        </app-card-professor>
+      </ion-router-link>
+    </div>
+  </div>
+</ion-content>

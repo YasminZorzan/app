@@ -1,0 +1,12 @@
+ion-select::part(icon) {
+    // display: none !important;
+}
+
+ion-select::part(text) {
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.item-inner {
+    padding-right: 0px !important;
+}

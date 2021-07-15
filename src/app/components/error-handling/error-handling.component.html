@@ -1,0 +1,8 @@
+<div *ngIf="field.invalid && (field.dirty || field.touched)">
+  <span class="block text-sweatifyRed text-xs ml-4 my-1" *ngIf="field.errors && field.errors.required">O campo {{fieldName}} é obrigatório</span>
+  <span class="block text-sweatifyRed text-xs ml-4 my-1" *ngIf="field.errors && field.errors.email">O campo {{fieldName}} não possui um e-mail válido</span>
+  <span class="block text-sweatifyRed text-xs ml-4 my-1" *ngIf="field.errors && field.errors.maxlength">O campo {{fieldName}} não aceita mais de {{field.errors.maxlength.requiredLength}} caracteres</span>
+  <span class="block text-sweatifyRed text-xs ml-4 my-1" *ngIf="field.errors && field.errors.minlength">O campo {{fieldName}} precisar ter ao menos {{field.errors.minlength.requiredLength}} caracteres</span>
+  <span class="block text-sweatifyRed text-xs ml-4 my-1" *ngIf="field.errors && field.errors.min">O campo {{fieldName}} deve ser maior que  {{field.errors.min.min}}</span>
+  <span class="block text-sweatifyRed text-xs ml-4 my-1" *ngIf="field.errors && field.errors.max">O campo {{fieldName}} deve ser menor que  {{field.errors.max.max}}</span>
+</div>

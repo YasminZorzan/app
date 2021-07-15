@@ -1,0 +1,78 @@
+<ion-content class="bg-black">
+	<div class="p-8">
+		<!--------- Esse bloco aparece quando a página é acessada --------->
+		<ng-container *ngIf="!senhaEnviada">
+			<h1 class="font-rajdhani text-5xl text-softGray mb-6 mt-24">escolha uma nova senha </h1>
+
+			<form [formGroup]="registrationForm" (submit)="cadastrarSenha()">
+				<div class="text-left">
+					<div class="px-4 border rounded-full mb-4 relative"
+						[ngClass]="{'border-blue-light text-blue-light' : senha.touched && !senha.valid , 'border-white text-white' : senha.touched && senha.valid, 'border-softGray text-softGray' : !senha.touched}" >
+						<ion-input placeholder="Nova senha" type="password" name="senha" formControlName="senha" autocomplete="chrome-off" class="text-sm"></ion-input>
+            <ion-icon class="check absolute top-1/2 right-3 transform -translate-y-1/2" *ngIf="senha.value && senha.valid"></ion-icon>
+          </div>
+					<div class="px-4 border rounded-full mb-4 relative"
+						[ngClass]="{'border-blue-light text-blue-light' : confirmarSenha.touched && !confirmarSenha.valid , 'border-white text-white' : confirmarSenha.touched && confirmarSenha.valid, 'border-softGray text-softGray' : !confirmarSenha.touched}" >
+						<ion-input placeholder="Confirmar nova senha" type="password" name="confirmarSenha" formControlName="confirmarSenha" autocomplete="chrome-off" class="text-sm"></ion-input>
+            <ion-icon class="check absolute top-1/2 right-3 transform -translate-y-1/2" *ngIf="senha.value && !registrationForm.hasError('senhaNaoConfere')"></ion-icon>
+					</div>
+				</div>
+
+				<div class="block text-center mt-8 mb-10">
+					<ion-button type="submit" class="px-10 bg-blue-light rounded-full text-black remove-shadow" color="clear">Salvar</ion-button>
+				</div>
+			</form>
+
+      <div class="font-light text-white">
+        <p class="mb-2">A senha deve conter pelo menos:</p>
+
+        <div class="mb-2">
+          <div class="empty-check border border-darkGray rounded-full relative inline-block mr-2">
+            <ion-icon class="check bg-contain empty-check absolute top-0 right-0" 
+            *ngIf="senha.value && !senha.hasError('minlength')"></ion-icon>
+          </div>
+          8 caracteres
+        </div>
+
+        <div class="mb-2">
+          <div class="empty-check border border-darkGray rounded-full relative inline-block mr-2">
+            <ion-icon class="check bg-contain empty-check absolute top-0 right-0" 
+            *ngIf="senha.value && !registrationForm.hasError('senhaCaractereEspecial')"></ion-icon>
+          </div>
+          1 caractere especial
+        </div>
+
+        <div class="mb-2">
+          <div class="empty-check border border-darkGray rounded-full relative inline-block mr-2">
+            <ion-icon class="check bg-contain empty-check absolute top-0 right-0" 
+            *ngIf="senha.value && !registrationForm.hasError('senhaNumero')"></ion-icon>
+          </div>
+          1 número
+        </div>
+
+      </div>
+
+		</ng-container>
+
+		<!--------- Esse bloco aparece quando a senha é redefinida --------->
+		<ng-container *ngIf="senhaEnviada">
+			<ion-grid class="ion-no-padding mt-24">
+				<ion-row>
+					<ion-col size="9">
+						<p class="font-rajdhani text-5xl text-softGray">senha
+              redefinida!</p>
+					</ion-col>
+					<ion-col class="flex items-end justify-items-end" size="3">
+						<img src="/assets/img/icons/icon-rounded-check.svg" alt="Enviado" class="pb-3">
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+			<ion-router-link [routerLink]="['/login']">
+				<p class="text-center mt-24">
+					<ion-button class="px-10 bg-blue-light rounded-full text-black remove-shadow" color="clear">Login</ion-button>
+				</p>
+      		</ion-router-link>
+		</ng-container>
+	
+	</div>
+</ion-content>

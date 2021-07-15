@@ -1,0 +1,64 @@
+<ion-menu side="end" menuId="menu" contentId="main" class="backdrop-filter backdrop-blur bg-transparent">
+  <div class="px-4 bg-black h-full m-4 rounded-lg">
+    <ion-list class="bg-transparent divide-y divide-hardGray px-2" lines="none">
+      <ion-item *ngFor="let item of menuItems" class="bg-transparent text-sm relative overflow-visible" (click)="itemAction(item)">
+        <span class="px-2 py-5 text-sm" [class.text-blue-light]="router.url == item.route"
+          [class.text-disabledGray]="router.url != item.route">{{item.label}}</span>
+        <div *ngIf="router.url == item.route" class="w-10 h-1 bg-blue-light absolute -bottom-1 mb-px -left-2"></div>
+      </ion-item>
+      <ion-item class="bg-transparent text-sm relative overflow-visible text-disabledGray">
+        <div class="px-6 py-5 flex items-center space-x-4">
+          <svg width="18.984" height="19.848"><g data-name="Grupo 620" fill="currentcolor"><path data-name="Caminho 186" d="M10.139.647v9.075a.647.647 0 01-1.294 0V.647a.647.647 0 011.294 0zm0 0"/><path data-name="Caminho 188" d="M18.984 10.356A9.492 9.492 0 116.02 1.522a.647.647 0 11.474 1.2 8.2 8.2 0 106 0 .647.647 0 11.474-1.2 9.443 9.443 0 016.016 8.834zm0 0"/></g></svg>
+          <span class="text-sm">Sair</span>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-menu>
+
+<ion-content class="bg-strongGray" id="main">
+  <div class="flex justify-end p-4">
+    <ion-menu-button class="text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" width="23" height="18"><g data-name="Grupo 606" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path data-name="Linha 152" d="M1 1h21"/><path data-name="Linha 153" d="M1 9h21"/><path data-name="Linha 154" d="M1 17h21"/></g></svg>
+    </ion-menu-button>
+  </div>
+  <div class="flex flex-col items-center px-4">
+    <div class="w-20 h-20 rounded-full bg-cover bg-center" *ngIf="profile" [style.background-image]="'url(' + profile.foto + ')'"></div>
+    <span class="text-white font-bold text-lg mt-5" *ngIf="profile">{{profile.nome}}</span>
+    <span class="text-white text-xs mt-1" *ngIf="profile">@{{profile.username}}</span>
+    <span class="text-white text-xs mt-2" *ngIf="profile">{{profile.localizacao}}</span>
+  </div>
+  <div class="flex items-center justify-between pt-9">
+    <div class="border-t border-softGray flex-1"></div>
+    <span class="px-6 text-xs" *ngIf="profile">Membro desde {{profile.dataCriacao | date:'dd/MM/yyyy'}}</span>
+    <div class="border-t border-softGray flex-1"></div>
+  </div>
+  <div class="px-4 pt-6 pb-2 flex flex-col items-center text-sm">
+    <span class="uppercase">últimos 30 dias</span>
+    <span class="text-xs mt-1">Em comparação com os 30 dias anteriores</span>
+  </div>
+  <div class="flex justify-center">
+    <ion-select placeholder="DIAS ATIVOS">
+      <ion-select-option value="recentes">Recentes</ion-select-option>
+      <ion-select-option value="professor">Professor</ion-select-option>
+    </ion-select>
+  </div>
+  <div class="flex flex-col items-center pt-3 relative">
+    <div class="relative flex items-center">
+      <span class="text-8xl font-light">16</span>
+      <div class="flex items-center absolute -right-16 text-lemonGreen space-x-1">
+        <svg width="12.709" height="22.771"><g data-name="Grupo 527" fill="none" stroke="currentColor"><path data-name="Linha 141" d="M6.353.706v22.065"/><path data-name="Caminho 203" d="M.353 6.708L6.354.707l6.001 6.001"/></g></svg>
+        <span>3+</span>
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-center">
+    <ion-button class="bg-black font-normal rounded-full remove-shadow text-white normal-case text-xs" color="clear">
+      <span class="py-5 px-10">Estatísticas</span>
+    </ion-button>
+  </div>
+</ion-content>
+
+<ion-footer class="bg-strongGray">
+  <app-footer [menuAtivo]="'agenda'"></app-footer>
+</ion-footer>

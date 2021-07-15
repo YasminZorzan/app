@@ -1,0 +1,48 @@
+<ion-menu side="end" menuId="menu" contentId="main" class="backdrop-filter backdrop-blur m-4">
+  <div class="p-4 bg-black h-full overflow-y-hidden">
+    <ion-list class="bg-transparent">
+      <ion-item *ngFor="let item of menuItems" class="bg-transparent text-sm relative overflow-visible">
+        <span class="px-6 py-5 text-sm" [class.text-blue-light]="router.url == item.route"
+          [class.text-disabledGray]="router.url != item.route">{{item.label}}</span>
+        <div *ngIf="router.url == item.route" class="w-10 h-1 bg-blue-light absolute -bottom-1 mb-px left-4"></div>
+      </ion-item>
+      <ion-item class="bg-transparent text-sm relative overflow-visible text-disabledGray">
+        <div class="px-6 py-5 flex items-center space-x-4">
+          <svg width="18.984" height="19.848"><g data-name="Grupo 620" fill="currentcolor"><path data-name="Caminho 186" d="M10.139.647v9.075a.647.647 0 01-1.294 0V.647a.647.647 0 011.294 0zm0 0"/><path data-name="Caminho 188" d="M18.984 10.356A9.492 9.492 0 116.02 1.522a.647.647 0 11.474 1.2 8.2 8.2 0 106 0 .647.647 0 11.474-1.2 9.443 9.443 0 016.016 8.834zm0 0"/></g></svg>
+          <span class="text-sm">Sair</span>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-menu>
+
+<ion-content class="bg-strongGray" id="main">
+  <div class="p-4 flex flex-col h-full">
+    <div class="flex justify-between">
+      <h1 class="font-rajdhani font-medium text-5xl text-white lowercase opacity-10">minha<br /> conta</h1>
+      <ion-menu-button class="text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="18"><g data-name="Grupo 606" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path data-name="Linha 152" d="M1 1h21"/><path data-name="Linha 153" d="M1 9h21"/><path data-name="Linha 154" d="M1 17h21"/></g></svg>
+      </ion-menu-button>
+    </div>
+    <div class="flex items-center justify-between mt-5">
+      <span class="text-lg font-bold">Excluir minha conta</span>
+      <a class="text-sm">< voltar</a>
+    </div>
+    <div class="flex-1 flex flex-col justify-between">
+      <p class="mt-7 text-xs">Termos para exclusão da conta.<br />
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <div class="grid grid-cols-2 gap-4">
+        <ion-button size="large" class="bg-blue-light font-normal rounded-full text-black normal-case text-xs" color="clear" routerLink="..">
+          <span class="py-20 px-7">Cancelar</span>
+        </ion-button>
+        <ion-button class="bg-softGray font-normal rounded-full text-black normal-case text-xs" color="clear" (click)="excluirConta()">
+          <span class="py-5 px-7">Excluir</span>
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer class="bg-strongGray">
+  <app-footer [menuAtivo]="'agenda'"></app-footer>
+</ion-footer>

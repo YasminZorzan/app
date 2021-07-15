@@ -1,0 +1,33 @@
+<ion-item lines="none" class="bg-transparent p-inline-start p-inline-end rounded-xl text-white shadow" [style.height]="cardHeight + 'px'">
+  <div class="w-full" [style.height]="cardHeight + 'px'">
+    <div class="p-4 bg-cover bg-center gradient-bottom" [style.background-image]="'url(' + bg + ')'" [style.height]="cardHeight + 'px'">
+      <p class="relative z-10">
+        <img src="/assets/img/logo-bicicleta-velocity.svg" alt="Velocity" class="inline-block"/>
+        <span class="text-tiny font-light uppercase ml-3">velocity</span>
+      </p>
+        
+      <div class="absolute z-10 bottom-0 left-0 w-full">
+        <img src="/assets/img/btn-bike.svg" alt="Perfil" class="block mx-auto mb-4" *ngIf="tipoDoCard == 'desafio'">
+        <p class="font-bold text-center">{{titulo}}</p>
+
+        <p class="text-tiny font-light text-center" *ngIf="tipoDoCard == 'desafio'">{{engajadas}} engajadas</p>
+        <p class="font-light text-lg text-center" *ngIf="tipoDoCard == 'desafio'">{{descricaoDesafio}}</p>
+        <p class="font-light text-tiny text-center" *ngIf="tipoDoCard == 'desafio'">{{datasDesafio}}</p>
+
+        <p class="font-light text-lg text-center" *ngIf="tipoDoCard == 'programa'">{{quantidadeDeAulas}} aulas</p>
+        <p class="text-tiny font-light text-center" *ngIf="tipoDoCard == 'programa'">Concluído {{vezesConcluido}} vezes</p>
+
+        <div class="p-4">
+          <div class="block text-center mt-4 mb-2 py-2 w-full bg-hardGray rounded-lg text-white">
+            <ion-button class="remove-shadow uppercase font-light" color="clear">
+              participar
+              <ion-icon class="tiny-arrow bg-white ml-2"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</ion-item>

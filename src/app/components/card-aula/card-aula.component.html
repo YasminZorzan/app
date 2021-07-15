@@ -1,0 +1,113 @@
+<!-- <ion-item lines="none" class="bg-black p-inline-start p-inline-end rounded-xl text-white shadow h-full" [style.height]="cardHeight + 'px'">
+  <div class="w-full h-full">
+    <div class="p-4 bg-cover bg-center" [style.background-image]="'url(' + bg + ')'">
+      <ion-grid class="ion-no-padding text-sm font-light p-0 pb-12">
+        <ion-row>
+          <ion-col size="3">
+            <img *ngIf="produto === 1" src="/assets/img/logo-bicicleta-velocity.svg" alt="Velocity"/>
+            <img *ngIf="produto !== 1" src="/assets/img/logo-k-kore.svg" alt="Kore"/>
+          </ion-col>
+          <ion-col size="9" class="text-right">
+            <ion-button class="inline-block size-40 button-no-padding mr-2 remove-shadow" color="clear" (click)="salvo = !salvo">
+              <div class="rounded-full w-full h-full flex items-center justify-center" [ngClass]="{'bg-disabledLightGray': salvo == false, 'bg-blue-light': salvo == true}">
+                <ion-icon [ngClass]="{'flag-outline': salvo == false, 'flag bg-hardGray': salvo == true}"></ion-icon>
+              </div>
+            </ion-button>
+            <ion-button class="inline-block size-40 button-no-padding remove-shadow" color="clear" (click)="calendario = !calendario">
+              <div class="rounded-full w-full h-full flex items-center justify-center" [ngClass]="{'bg-disabledLightGray': calendario == false, 'bg-normalGray opacity-50': calendario == true}">
+                <ion-icon class="calendar bg-hardGray" *ngIf="calendario == false"></ion-icon>
+                <span *ngIf="calendario == true" class="relative">
+                  <ion-icon class="calendar bg-white"></ion-icon>
+                  <ion-icon class="check-flat absolute top-0 right-1/2 transform translate-x-1/2"></ion-icon>
+                </span>
+                
+              </div>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-button class="inline-block size-30 button-no-padding" color="clear" *ngIf="check">
+        <div class="rounded-full w-full h-full flex items-center justify-center">
+          <ion-icon class="check-circle"></ion-icon>
+        </div>
+      </ion-button>
+    </div>
+
+    <div class="bg-black px-4">
+      <ion-grid class="ion-no-padding px-0 py-0 pt-4 mb-2 border-t border-darkGray">
+        <ion-row>
+          <ion-col class="text-tiny" size="2" [ngClass]="{'border-darkGray border-r': tipoDeTreino != '' || equipamento == false}">
+            {{duracao}}
+          </ion-col>
+          <ion-col class="text-tiny pl-3" size="10">
+            {{visualizacoes}} visualizações
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  
+      <p class="text-lg mb-2">{{titulo}}</p>
+      <p class="text-xs font-light pb-4">{{professor}}</p>
+    </div>
+  </div>
+</ion-item> -->
+
+<ion-item lines="none" class="bg-black p-inline-start p-inline-end rounded-xl text-white shadow h-full">
+  <div class="w-full">
+    <div class="aspect-w-16 aspect-h-8">
+
+      <div class="p-4 bg-cover bg-center" [style.background-image]="'url(' + aula.fotoDestaque + ')'">
+        <ion-grid class="ion-no-padding text-sm font-light p-0 pb-12">
+          <ion-row>
+            <ion-col size="3">
+              <img *ngIf="aula.idProduto === 1" src="/assets/img/logo-bicicleta-velocity.svg" alt="Velocity" />
+              <img *ngIf="aula.idProduto !== 1" src="/assets/img/logo-k-kore.svg" alt="Kore" />
+            </ion-col>
+            <ion-col size="9" class="text-right">
+              <ion-button class="inline-block size-40 button-no-padding mr-2 remove-shadow" color="clear"
+                (click)="salvo = !salvo">
+                <div class="rounded-full w-full h-full flex items-center justify-center"
+                  [ngClass]="{'bg-disabledLightGray': salvo == false, 'bg-blue-light': salvo == true}">
+                  <ion-icon [ngClass]="{'flag-outline': salvo == false, 'flag bg-hardGray': salvo == true}"></ion-icon>
+                </div>
+              </ion-button>
+              <ion-button class="inline-block size-40 button-no-padding remove-shadow" color="clear"
+                (click)="calendario = !calendario">
+                <div class="rounded-full w-full h-full flex items-center justify-center"
+                  [ngClass]="{'bg-disabledLightGray': calendario == false, 'bg-normalGray opacity-50': calendario == true}">
+                  <ion-icon class="calendar bg-hardGray" *ngIf="calendario == false"></ion-icon>
+                  <span *ngIf="calendario == true" class="relative">
+                    <ion-icon class="calendar bg-white"></ion-icon>
+                    <ion-icon class="check-flat absolute top-0 right-1/2 transform translate-x-1/2"></ion-icon>
+                  </span>
+
+                </div>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-button class="inline-block size-30 button-no-padding" color="clear" *ngIf="check">
+          <div class="rounded-full w-full h-full flex items-center justify-center">
+            <ion-icon class="check-circle"></ion-icon>
+          </div>
+        </ion-button>
+      </div>
+    </div>
+
+    <div class="bg-black px-4">
+      <div class="pt-4 mb-1 border-t border-darkGray flex">
+        <div class="text-tiny pr-3"
+          [ngClass]="{'border-darkGray border-r': tipoDeTreino != '' || equipamento == false}">
+          {{aula.duracao}}
+        </div>
+        <div class="text-tiny pl-3">
+          {{aula.qtdAssistidas}} visualizações
+        </div>
+      </div>
+
+      <p class="text-lg mb-1 truncate">{{aula.titulo}}</p>
+      <p class="text-xs font-light pb-4">{{aula.professor}}</p>
+    </div>
+  </div>
+</ion-item>

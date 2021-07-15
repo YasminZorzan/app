@@ -1,0 +1,7 @@
+{
+  "name": "Sweatify-Mobile",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

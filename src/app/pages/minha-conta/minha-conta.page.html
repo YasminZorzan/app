@@ -1,0 +1,130 @@
+<ion-menu side="end" menuId="menu" contentId="main" class="backdrop-filter backdrop-blur m-4">
+  <div class="p-4 bg-black h-full">
+    <ion-list class="bg-transparent">
+      <ion-item *ngFor="let item of menuItems" class="bg-transparent text-sm relative overflow-visible">
+        <span class="px-6 py-5 text-sm" [class.text-blue-light]="router.url == item.route"
+          [class.text-disabledGray]="router.url != item.route">{{item.label}}</span>
+        <div *ngIf="router.url == item.route" class="w-10 h-1 bg-blue-light absolute -bottom-1 mb-px left-4"></div>
+      </ion-item>
+      <ion-item class="bg-transparent text-sm relative overflow-visible text-disabledGray">
+        <div class="px-6 py-5 flex items-center space-x-4">
+          <svg width="18.984" height="19.848"><g data-name="Grupo 620" fill="currentcolor"><path data-name="Caminho 186" d="M10.139.647v9.075a.647.647 0 01-1.294 0V.647a.647.647 0 011.294 0zm0 0"/><path data-name="Caminho 188" d="M18.984 10.356A9.492 9.492 0 116.02 1.522a.647.647 0 11.474 1.2 8.2 8.2 0 106 0 .647.647 0 11.474-1.2 9.443 9.443 0 016.016 8.834zm0 0"/></g></svg>
+          <span class="text-sm">Sair</span>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-menu>
+
+<ion-content class="bg-strongGray" id="main">
+  <div class="p-4">
+    <div class="flex justify-between">
+      <h1 class="font-rajdhani font-medium text-5xl text-white lowercase opacity-50">minha<br /> conta</h1>
+      <ion-menu-button class="text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="18"><g data-name="Grupo 606" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path data-name="Linha 152" d="M1 1h21"/><path data-name="Linha 153" d="M1 9h21"/><path data-name="Linha 154" d="M1 17h21"/></g></svg>
+      </ion-menu-button>
+    </div>
+    <nav class="h-full flex space-x-6 overflow-x-auto py-5 mt-11 mb-8">
+      <div class="uppercase whitespace-nowrap w-80 text-center" *ngFor="let item of menu" (click)="setMenu(item.id)" [class.opacity-30]="currentPage != item.id">_{{item.label}}</div>
+    </nav>
+
+    <!-- DADOS DO PERFIL >> -->
+    <div *ngIf="currentPage === 0">
+      <div class="flex flex-col items-center">
+        <div class="relative">
+          <div class="w-20 h-20 rounded-full bg-center bg-cover" [style.background-image]="'url(' + previewUrl + ')'"></div>
+          <div class="w-8 h-8 bg-white rounded-full absolute -right-2 bottom-0 text-disabledGray flex items-center justify-center" (click)="fotoModal()">
+            <svg width="14.321" height="13.454"><path data-name="004-camera" d="M10.965 13.454H3.357A3.36 3.36 0 010 10.1V5.6a3.36 3.36 0 013.357-3.357H4.8l.217-.67A2.259 2.259 0 017.168 0H9.92a2.259 2.259 0 012.155 1.567l.311.975a3.364 3.364 0 011.936 3.052v4.5a3.36 3.36 0 01-3.357 3.36zm-7.608-10.1a2.24 2.24 0 00-2.238 2.238v4.5a2.24 2.24 0 002.238 2.238h7.608A2.24 2.24 0 0013.2 10.1V5.6a2.236 2.236 0 00-1.461-2.108.559.559 0 01-.343-.357l-.389-1.221a1.142 1.142 0 00-1.09-.791H7.168a1.143 1.143 0 00-1.09.793l-.342 1.057a.559.559 0 01-.532.387zm6.965-.559a.559.559 0 00-.559-.559H7.326a.56.56 0 000 1.119h2.436a.559.559 0 00.559-.555zm-8.14 2.657a.7.7 0 10.7-.7.7.7 0 00-.7.702zm0 2.238a.7.7 0 10.7-.7.7.7 0 00-.7.702zM8.5 11.272a3.357 3.357 0 113.357-3.357A3.36 3.36 0 018.5 11.272zm0-5.594a2.238 2.238 0 102.238 2.238A2.24 2.24 0 008.5 5.678z" fill="currentColor"/></svg>
+          </div>
+        </div>
+      </div>
+      <form class="grid grid-cols-1 gap-3 pt-7" [formGroup]="perfilForm">
+        <div class="py-3 px-5 bg-hardGray flex flex-col space-y-2">
+          <span class="text-sm leading-none">Nome</span>
+          <input formControlName="nome" class="text-sm leading-none text-normalGray bg-transparent p-0 m-0 focus:outline-none" />
+        </div>
+        <div class="py-3 px-5 bg-hardGray flex flex-col space-y-2">
+          <span class="text-sm leading-none">Sobrenome</span>
+          <input formControlName="sobrenome" class="text-sm leading-none text-normalGray bg-transparent p-0 m-0 focus:outline-none" />
+        </div>
+        <div class="py-3 px-5 bg-hardGray flex flex-col space-y-2">
+          <span class="text-sm leading-none">Localização</span>
+          <input formControlName="localizacao" class="text-sm leading-none text-normalGray bg-transparent p-0 m-0 focus:outline-none" />
+        </div>
+        <!-- <div class="py-3 px-5 bg-hardGray flex flex-col space-y-2">
+          <span class="text-sm leading-none">Nome de Usuário</span>
+          <span class="text-sm leading-none text-normalGray">@nomedeusuario</span>
+        </div>
+        <div class="py-3 px-5 bg-hardGray flex flex-col space-y-2">
+          <span class="text-sm leading-none">Local</span>
+          <span class="text-sm leading-none text-normalGray">São Paulo</span>
+        </div>
+        <div class="py-3 px-5 bg-hardGray flex flex-col space-y-2">
+          <span class="text-sm leading-none">E-mail</span>
+          <span class="text-sm leading-none text-normalGray">nomesobrenome@email.com</span>
+        </div> -->
+      </form>
+      <div class="flex justify-center mt-6">
+        <ion-button (click)="salvar()" class="bg-blue-light remove-shadow font-normal rounded-full text-black normal-case text-xs" [class.bg-softGray]="!perfilForm.dirty" color="clear"  [disabled]="!perfilForm.dirty">
+          <span class="py-5 px-7">Editar</span>
+        </ion-button>
+      </div>
+    </div>
+    <!-- << DADOS DO PERFIL -->
+    
+    <!-- DADOS DE COBRANÇA >> -->
+    <div *ngIf="currentPage === 1">
+      <div class="grid grid-cols-1 gap-3 pt-7">
+        <div class="py-3 px-5 bg-hardGray flex flex-col space-y-2">
+          <span class="text-sm leading-none">Plano</span>
+          <span class="text-sm leading-none text-normalGray">Premium (Velocity + Kore)</span>
+        </div>
+        <div class="py-3 px-5 bg-hardGray flex flex-col space-y-2">
+          <span class="text-sm leading-none">Tipo</span>
+          <span class="text-sm leading-none text-normalGray">Mensal</span>
+        </div>
+        <div class="py-3 px-5 bg-hardGray flex flex-col space-y-2">
+          <span class="text-sm leading-none">Cartão de crédito</span>
+          <span class="text-sm leading-none text-normalGray">•••• •••• •••• 2828</span>
+        </div>
+      </div>
+    </div>
+    <!-- << DADOS DE COBRANÇA -->
+
+    <!-- USUÁRIOS >> -->
+    <div *ngIf="currentPage === 2">
+      <div class="grid grid-cols-1 gap-3 pt-7">
+        <div class="py-4 px-5 bg-hardGray flex justify-between" *ngFor="let profile of profiles" [class.bg-black]="profile.idProfile === 1" [class.bg-hardGray]="profile.idProfile !== 1">
+          <span class="text-sm leading-none">{{profile.nome}}</span>
+          <span class="text-disabledGray text-xs"><div  class="cursor-pointer" *ngIf="profile.idProfile !== 1" (click)="openModal(profile.nome, profile.idProfile)">excluir</div><div *ngIf="profile.idProfile === 1">admin</div></span>
+        </div>
+        <div class="py-4 px-5 bg-hardGray flex justify-center" routerLink="/novo-usuario">
+          <span class="text-sm leading-none">adicionar</span>
+        </div>
+      </div>
+    </div>
+    <!-- << USUÁRIOS -->
+
+    <!-- CONTA >> -->
+    <div *ngIf="currentPage === 3">
+      <div class="grid grid-cols-1 gap-3 pt-7">
+        <div class="py-3 px-5 bg-hardGray" routerLink="/alterar-senha">
+          <span class="text-sm leading-none">Alterar senha</span>
+        </div>
+        <div class="py-3 px-5 bg-hardGray" routerLink="/excluir-conta">
+          <span class="text-sm leading-none">Excluir conta</span>
+        </div>
+      </div>
+      <div class="flex w-full absolute left-0 right-0 bottom-0 p-4">
+        <div class="py-3 px-5 bg-hardGray w-full" routerLink="/termos">
+          <span class="text-sm leading-none">Termos e Condições</span>
+        </div>
+      </div>
+    </div>
+    <!-- << CONTA -->
+  </div>
+
+</ion-content>
+<ion-footer class="bg-strongGray">
+  <app-footer [menuAtivo]="'agenda'"></app-footer>
+</ion-footer>
